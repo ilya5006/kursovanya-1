@@ -80,7 +80,7 @@ if (isset($_SESSION['role']))
                     echo "<h3> НЕТ СПЕЦ. СИМВОЛОВ </h3>";
                 }
 
-                if ($checkOne == true && $checkTwo == true && $checkThree == true && $checkFour == true && $checkLogin == true)
+                if ($checkOne && $checkTwo && $checkThree && $checkFour && $checkLogin)
                 {
                     $queryRegistration = "INSERT INTO user VALUES ('$login', '$password', 'Заказчик', '$name')";
                     $resultRegistration = mysqli_query($link, $queryRegistration);
