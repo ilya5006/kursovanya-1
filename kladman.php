@@ -13,6 +13,7 @@ if($_SESSION['role'] != 'Кладовщик' || empty($_SESSION['role']))
     <title> КЛАДМЕН </title>
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/kladman.css">
+    <link rel="stylesheet" href="css/forms.css">
 </head>
 <body>
     <a href="logout.php"> ВЫЙТИ </a>

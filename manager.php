@@ -13,6 +13,7 @@ if($_SESSION['role'] != 'Менеджер' OR empty($_SESSION['role']))
     <title> МЕНЕДЖЭР </title>
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/manager.css">
+    <link rel="stylesheet" href="css/forms.css">
 </head>
 <body>
     <a href="logout.php"> ВЫЙТИ </a>

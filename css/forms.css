@@ -1,0 +1,31 @@
+form
+{
+    background-color: white;
+}
+
+#info
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    margin-bottom: 5px;
+}
+
+#info p
+{
+    align-self: center;
+    margin-left: 5px;
+}
+
+#info img
+{
+    width: 100px;
+    height: 50px;
+}
+
+#cloth, #products
+{
+    width: 80%;
+    margin: 0px auto;
+}
