@@ -17,8 +17,7 @@ if($_SESSION['role'] != 'Кладовщик' || empty($_SESSION['role']))
 <body>
     <a href="logout.php"> ВЫЙТИ </a>
     
-    <h2> ТКАНИ: </h2>
-
+    <h2 id="title"> ТКАНИ: </h2>
     <form id="cloth" action="" method="POST">
         <?
             $query = "SELECT * FROM cloth";
