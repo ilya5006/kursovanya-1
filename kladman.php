@@ -47,12 +47,13 @@ if($_SESSION['role'] != 'Кладовщик' || empty($_SESSION['role']))
             while ($furniture_info = mysqli_fetch_row($result))
             {
                 echo "<div id='info'>";
-                    echo "<img src='$furniture_info[4]'>";
+                    echo "<img src='$furniture_info[6]'>";
                     echo "<p> Имя: $furniture_info[1] </p>";
-                    echo "<p> Композиция: $furniture_info[5] </p>";
-                    echo "<p> Ширина: $furniture_info[6] </p>"; // Ширина ткани
-                    echo "<p> Длина: $furniture_info[7] </p>"; // Длина ткани
-                    echo "<p> Цена: $furniture_info[8] </p>"; // Цена ткани
+                    echo "<p> Тип: $furniture_info[2] </p>";
+                    echo "<p> Ширина: $furniture_info[3] </p>";
+                    echo "<p> Длина: $furniture_info[4] </p>";
+                    echo "<p> Вес: $furniture_info[5] </p>";
+                    echo "<p> Цена: $furniture_info[7] </p>";  
                 echo "</div>";
             }
         ?>
