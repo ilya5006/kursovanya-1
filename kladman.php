@@ -26,8 +26,14 @@ if($_SESSION['role'] != 'Кладовщик' || empty($_SESSION['role']))
 
             while ($cloth_info = mysqli_fetch_row($result))
             {
-                echo "<img src='$cloth_info[4]'>";
-                echo "<p> $cloth_info[1] </p>";
+                echo "<div id='info'>";
+                    echo "<img src='$cloth_info[4]'>";
+                    echo "<p> Имя: $cloth_info[1] </p>"; // Имя ткани
+                    echo "<p> Композиция: $cloth_info[5] </p>"; // Композиция ткани
+                    echo "<p> Ширина: $cloth_info[6] </p>"; // Ширина ткани
+                    echo "<p> Длина: $cloth_info[7] </p>"; // Длина ткани
+                    echo "<p> Цена: $cloth_info[8] </p>"; // Цена ткани
+                echo "</div>";
             }
         ?>
     </form>
