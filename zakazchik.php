@@ -1,5 +1,6 @@
 <?
 session_start();
+require_once "connection.php";
 if($_SESSION['role'] != 'Заказчик' OR empty($_SESSION['role']))
 {
     header('Location: index.php');
