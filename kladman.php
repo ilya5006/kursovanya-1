@@ -10,7 +10,7 @@ if($_SESSION['role'] != 'Кладовщик' || empty($_SESSION['role']))
 <!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
-    <title> КЛАДМЕН </title>
+    <title> КЛАДМЭН </title>
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/kladman.css">
     <link rel="stylesheet" href="css/forms.css">
@@ -28,11 +28,31 @@ if($_SESSION['role'] != 'Кладовщик' || empty($_SESSION['role']))
             {
                 echo "<div id='info'>";
                     echo "<img src='$cloth_info[4]'>";
-                    echo "<p> Имя: $cloth_info[1] </p>"; // Имя ткани
-                    echo "<p> Композиция: $cloth_info[5] </p>"; // Композиция ткани
-                    echo "<p> Ширина: $cloth_info[6] </p>"; // Ширина ткани
-                    echo "<p> Длина: $cloth_info[7] </p>"; // Длина ткани
-                    echo "<p> Цена: $cloth_info[8] </p>"; // Цена ткани
+                    echo "<p> Имя: $cloth_info[1] </p>";
+                    echo "<p> Композиция: $cloth_info[5] </p>";
+                    echo "<p> Ширина: $cloth_info[6] </p>";
+                    echo "<p> Длина: $cloth_info[7] </p>";
+                    echo "<p> Цена: $cloth_info[8] </p>";
+                echo "</div>";
+            }
+        ?>
+    </form>
+
+    <h2 id="title" style="margin-top: 10px;"> ФУРНИТУРЫ: </h2>
+    <form id="furniture" action="" method="POST">
+        <?
+            $query = "SELECT * FROM furniture";
+            $result = mysqli_query($link, $query);
+
+            while ($furniture_info = mysqli_fetch_row($result))
+            {
+                echo "<div id='info'>";
+                    echo "<img src='$furniture_info[4]'>";
+                    echo "<p> Имя: $furniture_info[1] </p>";
+                    echo "<p> Композиция: $furniture_info[5] </p>";
+                    echo "<p> Ширина: $furniture_info[6] </p>"; // Ширина ткани
+                    echo "<p> Длина: $furniture_info[7] </p>"; // Длина ткани
+                    echo "<p> Цена: $furniture_info[8] </p>"; // Цена ткани
                 echo "</div>";
             }
         ?>
