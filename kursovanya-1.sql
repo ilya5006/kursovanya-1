@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Май 26 2019 г., 10:33
+-- Время создания: Май 26 2019 г., 21:30
 -- Версия сервера: 8.0.12
 -- Версия PHP: 7.2.10
 
@@ -89,7 +89,7 @@ CREATE TABLE `furniture` (
 --
 
 INSERT INTO `furniture` (`article`, `name`, `type`, `width`, `length`, `weight`, `image`, `price`) VALUES
-('4', 'Шуруп', 'ШурупЫ', 1234, 413, 124123, 'URL', 14213);
+('4', 'Шуруп', 'ШурупЫ', 1234, 413, 124123, 'https://st0.isolux.ru/media/catalog/product/cache/1/image/602f0fa2c1f0d1ba5e241f914e856ff9/_/x/_xtn_1_1.jpg?kar=1&kf=1&kt=1&co=1&rgb%5B0%5D=255&rgb%5B1%5D=255&rgb%5B2%5D=255&ang=ang&qua=90', 14213);
 
 -- --------------------------------------------------------
 
@@ -158,24 +158,24 @@ INSERT INTO `orders_product` (`article`, `number_order`, `counts_product`) VALUE
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `product`
+-- Структура таблицы `products`
 --
 
-CREATE TABLE `product` (
+CREATE TABLE `products` (
   `article` varchar(25) NOT NULL,
   `name` varchar(25) NOT NULL,
   `width` int(11) NOT NULL,
   `length` int(11) NOT NULL,
   `image` text,
   `comment` text
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 --
--- Дамп данных таблицы `product`
+-- Дамп данных таблицы `products`
 --
 
-INSERT INTO `product` (`article`, `name`, `width`, `length`, `image`, `comment`) VALUES
-('1', 'Диван', 424, 52154, 'URL', 'Хороший диван, очень большой, прям очень');
+INSERT INTO `products` (`article`, `name`, `width`, `length`, `image`, `comment`) VALUES
+('1', 'Диван', 424, 52154, 'https://cdn.mebelvia.ru/upload/resize_cache/iblock/9eb/750_563_1/divan_vernon_1.jpg?1516957203140118', 'Хороший диван, очень большой, прям очень\r\nЯ бы сказал, что это лучший диван, который существует на этом свете.');
 
 -- --------------------------------------------------------
 
@@ -236,7 +236,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`login`, `password`, `role`, `name`) VALUES
 ('director', '123', 'Директор', 'Директор'),
-('kladmen', '123', 'Кладовщик', 'кладмен'),
+('kladman', '123', 'Кладовщик', 'кладмен'),
 ('manager', '123', 'Менеджер', 'Манагер'),
 ('zakazchik', '123', 'Заказчик', 'заказчек');
 
@@ -289,9 +289,9 @@ ALTER TABLE `orders_product`
   ADD KEY `number_order` (`number_order`);
 
 --
--- Индексы таблицы `product`
+-- Индексы таблицы `products`
 --
-ALTER TABLE `product`
+ALTER TABLE `products`
   ADD PRIMARY KEY (`article`);
 
 --
@@ -323,14 +323,14 @@ ALTER TABLE `user`
 --
 ALTER TABLE `cloth_product`
   ADD CONSTRAINT `cloth_product_ibfk_1` FOREIGN KEY (`article_cloth`) REFERENCES `cloth` (`article`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `cloth_product_ibfk_2` FOREIGN KEY (`article_product`) REFERENCES `product` (`article`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `cloth_product_ibfk_2` FOREIGN KEY (`article_product`) REFERENCES `products` (`article`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Ограничения внешнего ключа таблицы `furniture_product`
 --
 ALTER TABLE `furniture_product`
   ADD CONSTRAINT `furniture_product_ibfk_1` FOREIGN KEY (`article_furniture`) REFERENCES `furniture` (`article`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `furniture_product_ibfk_2` FOREIGN KEY (`article_product`) REFERENCES `product` (`article`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `furniture_product_ibfk_2` FOREIGN KEY (`article_product`) REFERENCES `products` (`article`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Ограничения внешнего ключа таблицы `orders`
@@ -344,7 +344,7 @@ ALTER TABLE `orders`
 --
 ALTER TABLE `orders_product`
   ADD CONSTRAINT `orders_product_ibfk_1` FOREIGN KEY (`number_order`) REFERENCES `orders` (`number`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `orders_product_ibfk_2` FOREIGN KEY (`article`) REFERENCES `product` (`article`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `orders_product_ibfk_2` FOREIGN KEY (`article`) REFERENCES `products` (`article`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Ограничения внешнего ключа таблицы `storage_cloth`
